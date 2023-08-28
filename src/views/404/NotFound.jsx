@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const NotFound = () => {
+export const NotFoundView = () => {
   return (
     <div>NotFound</div>
   )

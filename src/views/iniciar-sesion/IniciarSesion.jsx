@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const IniciarSesion = () => {
+export const IniciarSesionView = () => {
   return (
     <div>IniciarSesion</div>
   )

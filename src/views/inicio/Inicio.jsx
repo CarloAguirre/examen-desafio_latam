@@ -1,9 +1,11 @@
 import React from 'react'
+import { Inicio } from '../../components/inicio/Inicio'
 
-export const Inicio = () => {
+
+export const InicioView = () => {
   return (
     <>
-    <div>Inicio</div>
+    <Inicio />
     </>
   )
 }

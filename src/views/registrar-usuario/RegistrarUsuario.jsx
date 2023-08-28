@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const RegistrarUsuario = () => {
+export const RegistrarUsuarioView = () => {
   return (
     <div>RegistrarUsuario</div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Carrito = () => {
+export const CarritoView = () => {
   return (
     <div>Carrito</div>
   )
