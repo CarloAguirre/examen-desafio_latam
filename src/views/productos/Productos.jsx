@@ -3,6 +3,6 @@ import { Productos } from '../../components/productos/Productos'
 
 export const ProductosView = () => {
   return (
-    <Productos />
+    <Productos page={'productos'} />
   )
 }
