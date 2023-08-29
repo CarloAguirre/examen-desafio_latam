@@ -107,11 +107,14 @@
     
   }
   .categorias p{
+    display: flex;
+    align-items: center;
     border: solid black 1px;
     padding: 20px;
     margin: -1px;
   }
   .page-counter{
+    // grid-area: none !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
