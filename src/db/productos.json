@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "nombre": "DreamCast",
+      "categoria": "",
+      "precio": 75000,
+      "img1": "dreamcast.png",
+      "img2": ""
+    },
+    {
+        "id": 2,
+        "nombre": "DreamCast",
+        "categoria": "",
+        "precio": 75000,
+        "img1": "dreamcast.png",
+        "img2": ""
+      },
+      {
+        "id": 3,
+        "nombre": "DreamCast",
+        "categoria": "",
+        "precio": 75000,
+        "img1": "dreamcast.png",
+        "img2": ""
+      },
+      {
+        "id":4,
+        "nombre": "DreamCast",
+        "categoria": "",
+        "precio": 75000,
+        "img1": "dreamcast.png",
+        "img2": ""
+      },
+      {
+        "id": 5,
+        "nombre": "DreamCast",
+        "categoria": "",
+        "precio": 75000,
+        "img1": "dreamcast.png",
+        "img2": ""
+      },
+      {
+        "id": 6,
+        "nombre": "DreamCast",
+        "categoria": "",
+        "precio": 75000,
+        "img1": "dreamcast.png",
+        "img2": ""
+      }
+  ]
+  
