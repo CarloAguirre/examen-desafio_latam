@@ -46,6 +46,46 @@
         "precio": 75000,
         "img1": "dreamcast.png",
         "img2": ""
-      }
+      },
+      {
+          "id": 7,
+          "nombre": "DreamCast",
+          "categoria": "",
+          "precio": 75000,
+          "img1": "dreamcast.png",
+          "img2": ""
+        },
+        {
+          "id": 8,
+          "nombre": "DreamCast",
+          "categoria": "",
+          "precio": 75000,
+          "img1": "dreamcast.png",
+          "img2": ""
+        },
+        {
+          "id":9,
+          "nombre": "DreamCast",
+          "categoria": "",
+          "precio": 75000,
+          "img1": "dreamcast.png",
+          "img2": ""
+        },
+        {
+          "id": 10,
+          "nombre": "DreamCast",
+          "categoria": "",
+          "precio": 75000,
+          "img1": "dreamcast.png",
+          "img2": ""
+        },
+        {
+          "id": 11,
+          "nombre": "DreamCast",
+          "categoria": "",
+          "precio": 75000,
+          "img1": "dreamcast.png",
+          "img2": ""
+        }
   ]
   

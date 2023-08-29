@@ -13,11 +13,12 @@ import {
   MiPerfilView,
   NotFoundView
 } from './views'
+import { Footer } from "./components/footer/Footer";
 
 function App() {
 
   return (
-    <div >
+    <div>
     <MarketplaceProvider>
 
     <BrowserRouter>
@@ -34,6 +35,7 @@ function App() {
         <Route path="/*" element={<NotFoundView />}/>
       </Routes>
     </BrowserRouter>
+      <Footer />
 
     </MarketplaceProvider>
  
