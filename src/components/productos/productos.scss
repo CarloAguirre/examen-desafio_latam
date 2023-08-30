@@ -48,7 +48,6 @@
     grid-area: aside;
     min-width: 6rem;
     background-color: rgba(255, 255, 255, 0.13);
-    padding: 1rem;
     font-size: large;
     font-weight: 500;
     color: rgb(218, 224, 229);
@@ -77,22 +76,7 @@
     color: white;
   }
   
-  .icon-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none; /* Evita el contorno al hacer clic */
-    position: absolute;
-    zoom: 2;
-  }
-  .icon-button .material-icons-outlined {
-    filter: drop-shadow(2px -1px 4px rgba(0, 0, 0, 0.60));
-    transition: transform 0.2s;
-  }
-  .icon-button .material-icons-outlined:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s;
-  }
+
   .shadow {
     -webkit-box-shadow: 2px -1px 27px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px -1px 27px 3px rgba(0,0,0,0.75);
@@ -106,15 +90,17 @@
     box-shadow: 10px 2px 18px 1px rgba(0,0,0,0.75);
     
   }
+  
   .categorias p{
+    width: 100%;
     display: flex;
     align-items: center;
     border: solid black 1px;
     padding: 20px;
-    margin: -1px;
+    margin-bottom: -1px;
+    margin-top: -1px;
   }
   .page-counter{
-    // grid-area: none !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,10 +109,10 @@
     margin-bottom: -2rem;
   }
   
-  @media (max-width: 1580px){
+  @media (max-width: 1500px){
     main {
       grid-area: main;
-      justify-content: center;
+      // justify-content: center;
       grid-template-areas:
         "img1 img2"
         "img3 img4"

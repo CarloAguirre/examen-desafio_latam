@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './productos.scss'
 import { Aside } from './AsideProductos';
-import { SliderProductos } from './sliderProductos';
+import { SliderProductos } from './SliderProductos';
 import { useMarketplace } from '../../context';
 
 export const Productos = ({page}) => {

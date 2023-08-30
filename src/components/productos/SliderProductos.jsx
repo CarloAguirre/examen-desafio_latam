@@ -1,5 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
+import ModalModel from '../modal/Modal';
 
 export const SliderProductos = ({handleSelect, index, pageProductos}) => {
   return (
@@ -18,12 +19,10 @@ export const SliderProductos = ({handleSelect, index, pageProductos}) => {
               {grupoProductos.map((productoGrupo) => (
                 <div key={productoGrupo.id} className={`producto-${productoGrupo.id}`}>
                   <div className="producto-datos shadow">
-                    <img src={`.././src/assets/${productoGrupo.img1}`} style={{ zoom: "13%" }} alt={productoGrupo.nombre} />
+                    <img src={`${productoGrupo.img1}`} style={{ zoom: "10%" }} alt={productoGrupo.nombre} />
                     <h3>{productoGrupo.nombre}</h3>
                     <p>${productoGrupo.precio}</p>
-                    <button className="icon-button">
-                      <span className="material-icons-outlined">add_circle</span>
-                    </button>
+                      <ModalModel producto={productoGrupo} />
                   </div>
                 </div>
               ))}

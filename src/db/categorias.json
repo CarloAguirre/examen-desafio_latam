@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "nombre": "ATARI",
+      "logo": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp"
+    },
+    {
+      "id": 2,
+      "nombre": "NINTENDO",
+      "logo": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp"
+
+      },
+      {
+      "id": 3,
+      "nombre": "PLAYSTATION",
+      "logo": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp"
+      },
+      {
+        "id": 4,
+        "nombre": "SEGA",
+        "logo": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp"
+      }
+  ]
+  

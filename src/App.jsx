@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<InicioView />}/>
         <Route path="/productos" element={<ProductosView />}/>
-        <Route path="/porductos/:categoria/:producto" element={<DetalleProductoView />}/>
+        <Route path="/porductos/:categoria/:id" element={<DetalleProductoView />}/>
         <Route path="/iniciar-sesion" element={<IniciarSesionView />}/>
         <Route path="/registrar-usuario" element={<RegistrarUsuarioView />}/>
         <Route path="/mi-perfil" element={<MiPerfilView />}/>

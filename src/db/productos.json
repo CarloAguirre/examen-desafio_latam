@@ -2,90 +2,101 @@
     {
       "id": 1,
       "nombre": "DreamCast",
-      "categoria": "ATARI",
+      "categoria": "SEGA",
       "precio": 75000,
-      "img1": "dreamcast.png",
-      "img2": ""
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+      "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
     },
     {
         "id": 2,
         "nombre": "DreamCast",
-        "categoria": "ATARI",
+        "categoria": "SEGA",
         "precio": 75000,
-        "img1": "dreamcast.png",
-        "img2": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+        "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
       },
       {
         "id": 3,
         "nombre": "DreamCast",
-        "categoria": "ATARI",
+        "categoria": "SEGA",
         "precio": 75000,
-        "img1": "dreamcast.png",
-        "img2": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+        "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
       },
       {
         "id":4,
         "nombre": "DreamCast",
         "categoria": "NINTENDO",
         "precio": 75000,
-        "img1": "dreamcast.png",
-        "img2": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+        "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
       },
       {
         "id": 5,
         "nombre": "DreamCast",
         "categoria": "NINTENDO",
         "precio": 75000,
-        "img1": "dreamcast.png",
-        "img2": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+        "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
       },
       {
         "id": 6,
         "nombre": "DreamCast",
         "categoria": "NINTENDO",
         "precio": 75000,
-        "img1": "dreamcast.png",
-        "img2": ""
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+        "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
       },
       {
           "id": 7,
           "nombre": "DreamCast",
           "categoria": "NINTENDO",
           "precio": 75000,
-          "img1": "dreamcast.png",
-          "img2": ""
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+          "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
         },
         {
           "id": 8,
           "nombre": "DreamCast",
           "categoria": "NINTENDO",
           "precio": 75000,
-          "img1": "dreamcast.png",
-          "img2": ""
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+          "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
         },
         {
           "id":9,
           "nombre": "DreamCast",
           "categoria": "PLAYSTATION",
           "precio": 75000,
-          "img1": "dreamcast.png",
-          "img2": ""
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+          "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
         },
         {
           "id": 10,
           "nombre": "DreamCast",
           "categoria": "PLAYSTATION",
           "precio": 75000,
-          "img1": "dreamcast.png",
-          "img2": ""
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+          "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
         },
         {
           "id": 11,
           "nombre": "DreamCast",
           "categoria": "SEGA",
           "precio": 75000,
-          "img1": "dreamcast.png",
-          "img2": ""
+          "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",
+          "img2": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693330540/Dreamcast_logo.svg_ohcps7.webp"
         }
   ]
   

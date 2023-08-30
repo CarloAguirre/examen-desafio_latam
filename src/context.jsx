@@ -24,8 +24,6 @@ useEffect(() => {
   fetchProductos();
 }, []);
 
-
-
 useEffect(() => {
   const filtrarProductos = ()=>{
     if(categoria != 'all'){

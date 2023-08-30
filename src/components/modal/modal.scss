@@ -1,0 +1,45 @@
+.icon-button {
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+    outline: none; /* Evita el contorno al hacer clic */
+    position: absolute;
+    zoom: 2;
+}
+.icon-button .material-icons-outlined {
+filter: drop-shadow(2px -1px 4px rgba(0, 0, 0, 0.60));
+transition: transform 0.2s;
+color: black;
+}
+.icon-button .material-icons-outlined:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+.custom-modal{
+    top: 35%;
+}
+.modal-container{
+    border: solid 1px white;
+    border-radius: 10px;
+}
+.custom-modal-body{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+    
+}
+.custom-modal-header {
+    background-color: black;
+    color: white;
+}
+.custom-modal-footer {
+background-color: black;
+}
+.custom-modal-buttons {
+    background-color: black;
+    min-width: 140px;
+    color: white;
+    font-weight: 800;
+    font-size: small;
+}
