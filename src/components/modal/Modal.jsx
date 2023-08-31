@@ -12,7 +12,7 @@ function ModalModel({producto}) {
 
   const navigate = useNavigate()
   const irAProducto = () => {
-    navigate(`/porductos/${producto.categoria}/${producto.id}`);
+    navigate(`/productos/${producto.categoria}/${producto.id}`);
   };
   return (
     <>
@@ -27,13 +27,19 @@ function ModalModel({producto}) {
         </Modal.Header>
         <Modal.Body className="custom-modal-body">
         <Button variant="primary" onClick={irAProducto} className="custom-modal-buttons ">
-            Ver más
+            Ver más <span className="material-icons-outlined">
+          open_in_browser
+          </span>
           </Button>
           <Button variant="danger" onClick={handleClose} className="custom-modal-buttons">
-            Añadir a favoritos
+            Añadir a favoritos <span className="material-icons-outlined">
+          favorite_border
+          </span>
           </Button>
           <Button variant="warning" onClick={handleClose} className="custom-modal-buttons">
-            Añadir a carrito
+            Añadir a carrito <span className="material-icons-outlined">
+          add_shopping_cart
+          </span>
           </Button>
         </Modal.Body>
         <Modal.Footer className="custom-modal-footer">

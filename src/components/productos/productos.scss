@@ -44,7 +44,6 @@
   }
   
   aside {
-    margin-top: 2rem;
     grid-area: aside;
     min-width: 6rem;
     background-color: rgba(255, 255, 255, 0.13);
@@ -52,9 +51,15 @@
     font-weight: 500;
     color: rgb(218, 224, 229);
   }
-  aside p:hover {
-    transform: scale(1.01);
-    cursor: pointer;
+  @media (max-width: 820px){
+     aside{
+      font-size:x-small;
+      font-weight: 500;
+     }
+     .categoria{
+      display: flex;
+      flex-direction: column;
+     }
   }
   main {
     background-color: rgba(255, 255, 255, 0.13);
@@ -68,15 +73,13 @@
     grid-template-areas:
       "img1 img2 img3"
       "img4 img5 img6";
+      h3{
+        color: #cb7a09;
+      }
+      p{
+        color: white;
+      }
   }
-  main h3{
-    color: #cb7a09;
-  }
-  main p{
-    color: white;
-  }
-  
-
   .shadow {
     -webkit-box-shadow: 2px -1px 27px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px -1px 27px 3px rgba(0,0,0,0.75);
@@ -90,8 +93,7 @@
     box-shadow: 10px 2px 18px 1px rgba(0,0,0,0.75);
     
   }
-  
-  .categorias p{
+  .categoria{
     width: 100%;
     display: flex;
     align-items: center;
@@ -99,6 +101,25 @@
     padding: 20px;
     margin-bottom: -1px;
     margin-top: -1px;
+    cursor: pointer;
+    min-height: 100px;
+    min-width: 200px;
+  }
+  .categoria:hover {
+    transition: 0.2s;
+    -webkit-box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+  }
+  .categoria p{
+    margin-top: 15px;
+  }
+  .categoria img {
+    vertical-align: middle;
+    margin-right: 10px; 
+  }
+  span{
+    margin-right: 10px;
   }
   .page-counter{
     display: flex;
@@ -108,11 +129,16 @@
     padding-top: .5rem;
     margin-bottom: -2rem;
   }
-  
+  .active-categoria{
+    color: #cb7a09;
+    margin: 0;
+    -webkit-box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 21px 0px 60px -21px rgba(0, 0, 0, 0.75);
+  }
   @media (max-width: 1500px){
     main {
       grid-area: main;
-      // justify-content: center;
       grid-template-areas:
         "img1 img2"
         "img3 img4"
@@ -146,11 +172,34 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        .category-logo__wrapper{
+          max-width: 100px;
+          min-height: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            max-width: 100px;
+          }
+        }
       }
     .categorias{
     display: flex;
     flex-direction: row;
     }
+    .categoria{
+      font-size:small;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 50px;
+      min-width: 80px;
+    }
+    span{
+      margin-right: 0px;
+    }
+
   }
   @media (max-width: 700px ){
     
@@ -180,18 +229,6 @@
       
   }
   .categorias-productos{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    p{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: solid black 1px;
-      padding: 20px;
-      margin: -1px;
-      min-height: 100px;
-      min-width: 200px;
-    }
-    }
+       display: flex;
+      flex-direction: row;
+  }

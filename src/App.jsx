@@ -11,9 +11,10 @@ import {
   RegistrarProductoView,
   CarritoView,
   MiPerfilView,
-  NotFoundView
+  NotFoundView,
 } from './views'
 import { Footer } from "./components/footer/Footer";
+
 
 function App() {
 
@@ -26,7 +27,8 @@ function App() {
       <Routes>
         <Route path="/" element={<InicioView />}/>
         <Route path="/productos" element={<ProductosView />}/>
-        <Route path="/porductos/:categoria/:id" element={<DetalleProductoView />}/>
+        <Route path="/productos/:categoria/:id" element={<DetalleProductoView />}/>
+        <Route path="/productos/:categoria" element={<ProductosView categoria={true}/>}/>
         <Route path="/iniciar-sesion" element={<IniciarSesionView />}/>
         <Route path="/registrar-usuario" element={<RegistrarUsuarioView />}/>
         <Route path="/mi-perfil" element={<MiPerfilView />}/>

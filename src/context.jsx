@@ -10,9 +10,9 @@ const [productos, setProductos] = useState([]);
 const [categoria, setCategoria] = useState('all')
 const [pageProductos, setPageProductos] = useState([])
 useEffect(() => {
-  async function fetchProductos() {
+  const fetchProductos = async()=> {
     try {
-      const response = await fetch('src/db/productos.json');
+      const response = await fetch('/db/productos.json');
       const data = await response.json();
       setProductos(data);
       setPageProductos(data)
@@ -20,7 +20,6 @@ useEffect(() => {
       console.error('Error en el fetch', error);
     }
   }
-  
   fetchProductos();
 }, []);
 
@@ -40,7 +39,7 @@ useEffect(() => {
        productos,
        pageProductos,
        setPageProductos,
-       setCategoria
+       setCategoria,
       }
         return (
             <MarketplaceContext.Provider

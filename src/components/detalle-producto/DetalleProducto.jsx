@@ -13,7 +13,9 @@ export const DetalleProducto = ({producto}) => {
           <div className='producto-details'>
             <h1 className='mb-4'>{producto.nombre}</h1>
               <p>{producto.desc}</p>
-              <h2>PRECIO <span>${producto.precio}</span></h2>
+              <div className='precio-container'>
+                <h2>PRECIO <span>${producto.precio}</span></h2>
+              </div>
           </div>
       </div>
     </div>

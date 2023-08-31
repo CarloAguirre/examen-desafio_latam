@@ -65,7 +65,7 @@
         {
           "id": 8,
           "nombre": "DreamCast",
-          "categoria": "NINTENDO",
+          "categoria": "ATARI",
           "precio": 75000,
           "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "img1": "https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp",

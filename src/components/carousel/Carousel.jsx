@@ -10,7 +10,7 @@ function CarouselSlider({ img1, img2 }) {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel activeIndex={index} onSelect={handleSelect} slide={false}>
       <Carousel.Item>
         <div className="carousel-image-container">
           <img className="carousel-image" src={img1} alt="Primera imagen" />

@@ -2,13 +2,15 @@
     height: auto;
     margin-left: -9px;
     margin-top: -9px; 
+    
   }
   
   .carousel-image { 
     width: 100%;
     height: auto;
-    object-fit: cover; 
+    object-fit: cover;   
   }
+
 .carousel-control-prev-icon::before, .carousel-control-next-icon::before  {
     content: '';
     position: absolute;
