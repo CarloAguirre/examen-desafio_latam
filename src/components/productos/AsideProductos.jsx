@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const Aside = ({page}) => {
-  const {setCategoria} = useMarketplace()
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const {setCategoria, selectedCategory, setSelectedCategory} = useMarketplace()
+
   const navigate = useNavigate()
   const handleCategoryClick = (categoria) => {
     setCategoria(categoria);

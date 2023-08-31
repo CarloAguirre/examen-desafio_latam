@@ -10,11 +10,11 @@ export const NavModel = ()=> {
           <Navbar.Toggle aria-controls="navbar-collapse" />
           <Navbar.Collapse id="navbar-collapse" className="justify-content-end">
           <Nav className="ml-auto"> 
-            <NavLink className={({isActive})=>(isActive ? "active" : "navLink")} to="/">Inicio</NavLink>
-            <NavLink className={({isActive})=>(isActive ? "active" : "navLink")} to="/productos">Productos</NavLink>      
-            <NavLink className={({isActive})=>(isActive ? "active" : "navLink")} to="/mi-perfil">Mi Perfil</NavLink>      
-            <NavLink className={({isActive})=>(isActive ? "active" : "navLink")} to="/carrito">Carrito</NavLink>      
-            <NavLink className={({isActive})=>(isActive ? "active" : "navLink")} to="/iniciar-sesion">Iniciar sesión</NavLink>      
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/">Inicio</NavLink>
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/productos">Productos</NavLink>      
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/mi-perfil">Mi Perfil</NavLink>      
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/carrito">Carrito</NavLink>      
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/iniciar-sesion">Iniciar sesión</NavLink>      
           </Nav>
           </Navbar.Collapse>
         </Container>

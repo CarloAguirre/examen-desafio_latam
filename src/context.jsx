@@ -8,7 +8,15 @@ import { createContext, useState, useEffect, useContext } from "react"
   
 const [productos, setProductos] = useState([]);
 const [categoria, setCategoria] = useState('all')
+const [selectedCategory, setSelectedCategory] = useState('all');
 const [pageProductos, setPageProductos] = useState([])
+const [user, setUser] = useState({
+  id: 1,
+  nombre: 'Juan Godoy',
+  mail: 'juan@juan.com',
+  password: '123456',
+  rol: 'USER_ROLE'
+})
 useEffect(() => {
   const fetchProductos = async()=> {
     try {
@@ -40,6 +48,9 @@ useEffect(() => {
        pageProductos,
        setPageProductos,
        setCategoria,
+       selectedCategory, 
+       setSelectedCategory,
+       user    
       }
         return (
             <MarketplaceContext.Provider
