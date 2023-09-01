@@ -15,7 +15,7 @@ export const NavModel = ()=> {
             <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/">Inicio</NavLink>
             <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/productos">Productos</NavLink>      
             <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/mi-perfil">Mi Perfil</NavLink>      
-            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/carrito">Carrito {carrito.length > 0 ? (carrito.length) : null}</NavLink>      
+            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/carrito">Carrito {carrito.length > 0 ? '('+ carrito.length + ')' : null}</NavLink>      
             <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/iniciar-sesion">Iniciar sesión</NavLink>      
           </Nav>
           </Navbar.Collapse>

@@ -21,8 +21,11 @@ function ModalModel({producto, page}) {
   }
 
   const addCarrito = ()=>{
-    setCarrito([...carrito, producto])
-    alert('Producto añadido con exito!')
+    if(!carrito.includes(producto)){
+      setCarrito([...carrito, producto])
+      alert('Producto añadido con exito!')
+      return
+    }alert('Este producto ya se encuentra en el carrito.')
   }
   return (
     <>
