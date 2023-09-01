@@ -14,7 +14,7 @@ export const Productos = ({page, categoria}) => {
     <>
     <div className={page === 'productos'? 'grid-container__principal-productos': 'grid-container__principal'}>
       <Aside page={page}/>
-      <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={categoria}/>
+      <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={categoria} page={page}/>
     </div>
       </>
   )

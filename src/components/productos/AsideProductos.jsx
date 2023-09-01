@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import { useMarketplace } from '../../context'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 export const Aside = ({page}) => {
   const {setCategoria, selectedCategory, setSelectedCategory} = useMarketplace()
-
+  if(page === 'productos'){
+    const { categoria: paramsCategory } = useParams()
+    if(paramsCategory){
+      setCategoria(paramsCategory)
+      setSelectedCategory(paramsCategory)
+    }else{
+      setCategoria('all')
+      setSelectedCategory('all')
+    }
+  }
   const navigate = useNavigate()
   const handleCategoryClick = (categoria) => {
     setCategoria(categoria);

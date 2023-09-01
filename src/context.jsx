@@ -1,7 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react"
 
-
-
  const MarketplaceContext = createContext({})
 
  export const MarketplaceProvider = ({ children }) =>{
@@ -10,6 +8,8 @@ const [productos, setProductos] = useState([]);
 const [categoria, setCategoria] = useState('all')
 const [selectedCategory, setSelectedCategory] = useState('all');
 const [pageProductos, setPageProductos] = useState([])
+const [favoritos, setFavoritos] = useState([])
+const [carrito, setCarrito] = useState([])
 const [user, setUser] = useState({
   id: 1,
   nombre: 'Juan Godoy',
@@ -20,10 +20,14 @@ const [user, setUser] = useState({
 useEffect(() => {
   const fetchProductos = async()=> {
     try {
-      const response = await fetch('/db/productos.json');
-      const data = await response.json();
-      setProductos(data);
-      setPageProductos(data)
+      const productosFetch = await fetch('/db/productos.json');
+      const productosData = await productosFetch.json();
+      setProductos(productosData);
+      setPageProductos(productosData)
+
+      const favoritosFetch = await fetch('/db/favoritos.json');
+      const favoritosData = await favoritosFetch.json();
+      setFavoritos(favoritosData)
     } catch (error) {
       console.error('Error en el fetch', error);
     }
@@ -33,6 +37,7 @@ useEffect(() => {
 
 useEffect(() => {
   const filtrarProductos = ()=>{
+
     if(categoria != 'all'){
       const newProductos = productos.filter(producto=> producto.categoria === categoria)
       setPageProductos(newProductos)
@@ -50,7 +55,10 @@ useEffect(() => {
        setCategoria,
        selectedCategory, 
        setSelectedCategory,
-       user    
+       user,
+       favoritos,
+       carrito,
+       setCarrito,   
       }
         return (
             <MarketplaceContext.Provider

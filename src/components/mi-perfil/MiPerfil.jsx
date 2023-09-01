@@ -4,7 +4,8 @@ import './miPerfil.scss'
 import ControlledTabs from './ControlledTabs'
 
 export const MiPerfil = () => {
-  const {user, productos} = useMarketplace()
+  const {user, productos, favoritos} = useMarketplace()
+  console.log(favoritos)
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -14,7 +15,7 @@ export const MiPerfil = () => {
     <div className='user-info__container'>
       <div className='user-info'>
         <h3>Nombre</h3>
-          <p>{user.nombre}</p>
+        <p>{user.nombre}</p>
       </div>
       <div className='user-info mb-5'>
         <h3>Mail</h3>

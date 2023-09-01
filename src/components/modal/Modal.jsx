@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './modal.scss';
 import { useNavigate } from 'react-router-dom';
+import { useMarketplace } from '../../context';
 
-function ModalModel({producto}) {
+function ModalModel({producto, page}) {
   const [show, setShow] = useState(false);
-
+  const {setCarrito, carrito} = useMarketplace()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -14,6 +15,15 @@ function ModalModel({producto}) {
   const irAProducto = () => {
     navigate(`/productos/${producto.categoria}/${producto.id}`);
   };
+
+  const addAction = ()=>{
+    alert("Es necesaria la integracion del backend y la base de datos para la ejecución de esta acción")
+  }
+
+  const addCarrito = ()=>{
+    setCarrito([...carrito, producto])
+    alert('Producto añadido con exito!')
+  }
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="icon-button">
@@ -31,16 +41,20 @@ function ModalModel({producto}) {
           open_in_browser
           </span>
           </Button>
-          <Button variant="danger" onClick={handleClose} className="custom-modal-buttons">
+          {(page === 'inicio' || page === 'productos')? 
+          <>
+          <Button variant="danger" onClick={addAction} className="custom-modal-buttons">
             Añadir a favoritos <span className="material-icons-outlined">
           favorite_border
           </span>
           </Button>
-          <Button variant="warning" onClick={handleClose} className="custom-modal-buttons">
+          <Button variant="warning" onClick={addCarrito} className="custom-modal-buttons">
             Añadir a carrito <span className="material-icons-outlined">
           add_shopping_cart
           </span>
-          </Button>
+          </Button> 
+          </> : null}
+          
         </Modal.Body>
         <Modal.Footer className="custom-modal-footer">
         <Button variant="secondary" onClick={handleClose}>

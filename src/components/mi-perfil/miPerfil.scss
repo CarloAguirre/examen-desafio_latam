@@ -19,6 +19,29 @@ h3{
         border-radius: 10px;
     }
 }
+.slider-wrapper{
+    background-color: rgba(31, 31, 31, 0.181);
+}
+.nav-link{
+    border-right: solid 1px black !important;
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    background-color: none !important;
+    color: white !important;
+    font-size:x-large;
+    background-color: rgba(255, 255, 255, 0.13);
+}
+.nav-link.active{
+    background-color: rgba(63, 63, 63, 0.434) !important;
+    border-bottom: none !important;
+    color: #cb7a09 !important;
+    font-size:x-large;
+}
+.nav-tabs{
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    
+}
 @media (max-width: 820px ){
     .user-info__container{
         padding: 1rem;

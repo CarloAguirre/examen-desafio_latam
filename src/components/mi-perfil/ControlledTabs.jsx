@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { SliderProductos } from '../productos/SliderProductos';
-
+import './MiPerfil.scss'
 function ControlledTabs({handleSelect, index, pageProductos}) {
   const [key, setKey] = useState('home');
 
@@ -13,14 +13,15 @@ function ControlledTabs({handleSelect, index, pageProductos}) {
       onSelect={(k) => setKey(k)}
       className="mb-3"
     >
-      <Tab eventKey="home" title="Home">
-        <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"}/>
+      <Tab eventKey="home" title="Mis Publicaciones">
+        <div className='slider-wrapper'>
+          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"}/>
+        </div>
       </Tab>
-      <Tab eventKey="profile" title="Profile">
-        Tab content for Profile
-      </Tab>
-      <Tab eventKey="contact" title="Contact" disabled>
-        Tab content for Contact
+      <Tab eventKey="profile" title="Favoritos">
+        <div className='slider-wrapper'>
+          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"} tab={"favoritos"}/>
+        </div>
       </Tab>
     </Tabs>
   );

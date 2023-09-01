@@ -1,7 +1,8 @@
 import React from 'react'
+import { Carrito } from '../../components/carrito/Carrito'
 
 export const CarritoView = () => {
   return (
-    <div>Carrito</div>
+    <Carrito />
   )
 }

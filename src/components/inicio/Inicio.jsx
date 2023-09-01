@@ -13,7 +13,7 @@ export const Inicio = () => {
   return (  
     <>
       <CarouselSlider img1={carouselImages.img1} img2={carouselImages.img2}/>
-      <Productos />
+      <Productos page={'inicio'}/>
     </>
   )
 }
