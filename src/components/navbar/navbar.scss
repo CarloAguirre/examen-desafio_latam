@@ -2,13 +2,16 @@
     color: #cb7a09;
     margin: 10px;
   }
+  .active-nav:hover{
+    color: #ff9808;
+  }
   .active:hover{
-    color: #cb7a09;
+    color: #ed8c05;
   }
   .navLink{
     margin: 10px;
     color: white;
   }
   .navLink:hover{
-    color: antiquewhite;
+    color: rgb(248, 217, 176);
   }

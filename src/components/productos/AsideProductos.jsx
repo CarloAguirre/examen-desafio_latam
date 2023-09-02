@@ -3,7 +3,7 @@ import { useMarketplace } from '../../context'
 import { useNavigate, useParams } from 'react-router-dom';
 
 
-export const Aside = ({page}) => {
+export const Aside = ({page, setIndex}) => {
   const {setCategoria, selectedCategory, setSelectedCategory} = useMarketplace()
   if(page === 'productos'){
     const { categoria: paramsCategory } = useParams()
@@ -19,6 +19,7 @@ export const Aside = ({page}) => {
   const handleCategoryClick = (categoria) => {
     setCategoria(categoria);
     setSelectedCategory(categoria);
+    setIndex(0)
     if(page === 'productos'){
       const irACategoria = () => {
         navigate(`/productos/${categoria}`);

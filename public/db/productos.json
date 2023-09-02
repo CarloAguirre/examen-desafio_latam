@@ -71,7 +71,7 @@
         },
         {
           "id": 8,
-          "user_id": 2,
+          "user_id": 1,
           "nombre": "DreamCast",
           "categoria": "ATARI",
           "precio": 75000,

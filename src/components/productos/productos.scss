@@ -17,24 +17,7 @@
     border-radius: 5%;
     padding-bottom: 2rem;
   }
-  .producto-1 {
-    grid-area: img1;
-  }
-  .producto-2 {
-    grid-area: img2;
-  }
-  .producto-3 {
-    grid-area: img3;
-  }
-  .producto-4 {
-    grid-area: img4;
-  }
-  .producto-5 {
-    grid-area: img5;
-  }
-  .producto-6 {
-    grid-area: img6;
-  }
+
   .producto-datos{
     display: flex;
     flex-direction: column;
@@ -72,9 +55,8 @@
     column-gap: 2rem;
     row-gap: 2rem;
     margin: 4rem;
-    grid-template-areas:
-      "img1 img2 img3"
-      "img4 img5 img6";
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
       h3{
         color: #cb7a09;
       }
@@ -84,8 +66,7 @@
   }
   .main-custom{
     min-height: 30vh;
-    grid-template-areas:
-      "img1 img2 img3";
+    grid-template-columns: repeat(3, 1fr);
   }
   .shadow {
     -webkit-box-shadow: 2px -1px 27px 3px rgba(0,0,0,0.75);
@@ -152,10 +133,7 @@
   @media (max-width: 1500px){
     main, .main-custom {
       grid-area: main;
-      grid-template-areas:
-        "img1 img2"
-        "img3 img4"
-        "img5 img6";
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
@@ -163,13 +141,7 @@
     main, .main-custom {
       grid-area: main;
       justify-content: center;
-      grid-template-areas:
-        "img1"
-        "img2"
-        "img3"
-        "img4"
-        "img5"
-        "img6";
+      grid-template-columns: repeat(1, 1fr);
     }
     .producto-1{
       min-width: 60vw;

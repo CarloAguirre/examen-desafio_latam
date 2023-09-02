@@ -10,6 +10,7 @@ const [selectedCategory, setSelectedCategory] = useState('all');
 const [pageProductos, setPageProductos] = useState([])
 const [favoritos, setFavoritos] = useState([])
 const [carrito, setCarrito] = useState([])
+const [index, setIndex] = useState(0);
 const [user, setUser] = useState({
   id: 1,
   nombre: 'Juan Godoy',
@@ -48,6 +49,10 @@ useEffect(() => {
   filtrarProductos()
 }, [categoria, productos])
 
+const handleSelect = (selectedIndex) => {
+  setIndex(selectedIndex);
+};
+
     const globalState = {
        productos,
        pageProductos,
@@ -58,7 +63,10 @@ useEffect(() => {
        user,
        favoritos,
        carrito,
-       setCarrito,   
+       setCarrito,
+       index, 
+       setIndex ,
+       handleSelect  
       }
         return (
             <MarketplaceContext.Provider
