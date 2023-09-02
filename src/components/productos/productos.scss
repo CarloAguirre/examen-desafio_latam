@@ -21,11 +21,14 @@
   .producto-datos{
     display: flex;
     flex-direction: column;
+    min-height: 330px ;
     justify-content: center;
     align-items: center;
     position: relative;
   }
-  
+  .custom-button{
+    border-radius: 100%;
+  }
   aside {
     grid-area: aside;
     min-width: 6rem;

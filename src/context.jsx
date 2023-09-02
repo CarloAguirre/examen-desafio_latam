@@ -11,6 +11,7 @@ const [pageProductos, setPageProductos] = useState([])
 const [favoritos, setFavoritos] = useState([])
 const [carrito, setCarrito] = useState([])
 const [index, setIndex] = useState(0);
+const [qty, setQty] = useState([])
 const [user, setUser] = useState({
   id: 1,
   nombre: 'Juan Godoy',
@@ -66,7 +67,9 @@ const handleSelect = (selectedIndex) => {
        setCarrito,
        index, 
        setIndex ,
-       handleSelect  
+       handleSelect,
+       qty,
+       setQty  
       }
         return (
             <MarketplaceContext.Provider

@@ -1,11 +1,13 @@
 import React from 'react'
-import Carousel from 'react-bootstrap/Carousel';
 import ModalModel from '../modal/Modal';
+import Carousel from 'react-bootstrap/Carousel';
+
 import { useParams } from 'react-router-dom';
 import { useMarketplace } from '../../context';
+import { TableTemplate } from '../carrito/TableTemplate';
 
 export const SliderProductos = ({handleSelect, index, pageProductos, categoria, page, tab}) => {
-  const {user, favoritos, carrito} = useMarketplace()
+  const {user, favoritos, carrito, setCarrito} = useMarketplace()
   let productos = pageProductos;
   if(categoria === true){
     const {categoria}= useParams()
@@ -54,14 +56,14 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
               <h5>Página {index + 1} de {Math.round(productos.length/group)}</h5>
             </div>
             <main className={(page ==='mi-perfil')? 'main-custom' : ''}>
-              {grupoProductos.map((productoGrupo) => (
-                <div key={productoGrupo.id} className={`producto-${productoGrupo.id}`}>
+              {grupoProductos.map((productoGrupo) => (            
+                <div key={productoGrupo.id}>
                   <div className="producto-datos shadow">
                     <img src={`${productoGrupo.img1}`} style={{ width:'330px' }} alt={productoGrupo.nombre} />
+                    <ModalModel producto={productoGrupo} page={page}/>
                     <h3>{productoGrupo.nombre}</h3>
                     <p>${productoGrupo.precio}</p>
-                      <ModalModel producto={productoGrupo} page={page}/>
-                  </div>
+                    </div>            
                 </div>
               ))}
             </main>

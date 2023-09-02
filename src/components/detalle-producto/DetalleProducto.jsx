@@ -4,7 +4,7 @@ import CarouselSlider from '../carousel/Carousel'
 export const DetalleProducto = ({producto}) => {
 
   return (
-    <div className='principal-container'>
+    <div className='principal-container__producto'>
       <div className='carousel-container'>
         <CarouselSlider img1={producto.img1} img2={producto.img2} />
       </div>

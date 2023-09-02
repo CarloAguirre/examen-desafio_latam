@@ -3,6 +3,8 @@ import { Carrito } from '../../components/carrito/Carrito'
 
 export const CarritoView = () => {
   return (
-    <Carrito />
+    <>
+      <Carrito />
+    </>
   )
 }

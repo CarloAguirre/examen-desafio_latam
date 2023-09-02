@@ -1,0 +1,11 @@
+.principal-container__carrito{
+    min-height: 90vh;
+    min-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.producto-td{
+    cursor: pointer;
+}
