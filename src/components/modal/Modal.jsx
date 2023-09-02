@@ -7,7 +7,7 @@ import { useMarketplace } from '../../context';
 
 function ModalModel({producto, page}) {
   const [show, setShow] = useState(false);
-  const {setCarrito, carrito} = useMarketplace()
+  const {setCarrito, carrito, user} = useMarketplace()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -44,7 +44,7 @@ function ModalModel({producto, page}) {
           open_in_browser
           </span>
           </Button>
-          {(page === 'inicio' || page === 'productos')? 
+          {((page === 'inicio' && user.nombre) || (page === 'productos' && user.nombre))? 
           <>
           <Button variant="danger" onClick={addAction} className="custom-modal-buttons">
             Añadir a favoritos <span className="material-icons-outlined">

@@ -30,9 +30,9 @@ function App() {
         <Route path="/productos/:categoria/:id" element={<DetalleProductoView />}/>
         <Route path="/productos/:categoria" element={<ProductosView categoria={true}/>}/>
         <Route path="/iniciar-sesion" element={<IniciarSesionView />}/>
-        <Route path="/registrar-usuario" element={<RegistrarUsuarioView />}/>
+        <Route path="/iniciar-sesion/registration" element={<RegistrarUsuarioView />}/>
         <Route path="/mi-perfil" element={<MiPerfilView />}/>
-        <Route path="/registrar-producto" element={<RegistrarProductoView />}/>
+        <Route path="/mi-perfil/registrar-producto" element={<RegistrarProductoView />}/>
         <Route path="/carrito" element={<CarritoView />}/>
         <Route path="/*" element={<NotFoundView />}/>
       </Routes>

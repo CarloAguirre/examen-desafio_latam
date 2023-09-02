@@ -12,13 +12,7 @@ const [favoritos, setFavoritos] = useState([])
 const [carrito, setCarrito] = useState([])
 const [index, setIndex] = useState(0);
 const [qty, setQty] = useState([])
-const [user, setUser] = useState({
-  id: 1,
-  nombre: 'Juan Godoy',
-  mail: 'juan@juan.com',
-  password: '123456',
-  rol: 'USER_ROLE'
-})
+const [user, setUser] = useState({})
 useEffect(() => {
   const fetchProductos = async()=> {
     try {
@@ -62,6 +56,7 @@ const handleSelect = (selectedIndex) => {
        selectedCategory, 
        setSelectedCategory,
        user,
+       setUser,
        favoritos,
        carrito,
        setCarrito,
