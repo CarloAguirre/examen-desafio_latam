@@ -55,14 +55,14 @@ function ModalModel({producto, page}) {
             Añadir a carrito <span className="material-icons-outlined">
           add_shopping_cart
           </span>
-          </Button> 
-          </> : null}
+          </Button>  
+          </> : <div className="form-text text-light">*Inicia sesion para ver mas opciones</div>}
           
         </Modal.Body>
         <Modal.Footer className="custom-modal-footer">
-        <Button variant="secondary" onClick={handleClose}>
-            Close
-        </Button>
+          <Button variant="secondary" onClick={handleClose}>
+              Close
+          </Button>
         </Modal.Footer>
         </div>
       </Modal>

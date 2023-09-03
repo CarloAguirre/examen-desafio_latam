@@ -46,6 +46,7 @@ export const LoginForm = () => {
           <form 
           className='login-form'
           >
+            
           <div className="mb-5">
               <label htmlFor="exampleInputEmail1" className="form-label">E-mail</label>
               <input 
@@ -82,6 +83,7 @@ export const LoginForm = () => {
             <button className="btn btn-success mb-4" onClick={()=>{navigate('/iniciar-sesion/registration')}}>Crear cuenta</button>
           </div>
       </div>
+      <div className="form-text text-light">*Modo beta: Puedes usar cualquier mail y contraseña para acceder</div>
       <div id='errorMsg' className='text-center mt-3' ></div>
     </div>
   )
