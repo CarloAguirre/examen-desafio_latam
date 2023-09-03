@@ -20,13 +20,18 @@ function ModalModel({producto, page}) {
     alert("Es necesaria la integracion del backend y la base de datos para la ejecución de esta acción")
   }
 
-  const addCarrito = ()=>{
-    if(!carrito.includes(producto)){
-      setCarrito([...carrito, {...producto, qty: 1}])
-      alert('Producto añadido con exito!')
-      return
-    }alert('Este producto ya se encuentra en el carrito.')
-  }
+  const addCarrito = () => {
+    const productoId = producto.id
+    const isProductoInCarrito = carrito.some((item) => item.id === productoId)
+
+    if (!isProductoInCarrito) {
+      setCarrito([...carrito, { ...producto, qty: 1 }])
+      alert('Producto añadido con éxito!')
+    } else {
+      alert('Este producto ya se encuentra en el carrito.')
+    }
+  };
+  
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="icon-button">

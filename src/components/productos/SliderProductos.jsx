@@ -25,8 +25,6 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
     }else{
       productos = productos.filter(producto=> Number(producto.user_id) === Number(user.id))
     }
-  }else if(page === 'carrito'){
-    productos = carrito
   }
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} interval={null} slide={false}>
