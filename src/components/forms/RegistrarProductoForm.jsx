@@ -7,7 +7,6 @@ import { useMarketplace } from '../../context'
 import { useNavigate } from 'react-router-dom'
 
 
-
 export const RegistrarProductoForm = () => {
     const {setUser} = useMarketplace()
     const navigate = useNavigate()
