@@ -1,29 +1,28 @@
 import React, { useState } from 'react'
-import Cookies from 'universal-cookie'
 import './loginForm.scss'
+import { registrarUsuario } from '../../helpers/registrarUsuario'
 
 export const RegistrarUsuarioForm = () => {
-    const cookies = new Cookies();
-    const [formState, setFormState] = useState({
-        name: '',
-        email: '',
-        password: ''
-      })
-    
-      const {email, password, name} = formState;
-    
-      const onInputchange = async({target})=>{
-        const {name, value} = target;
-        await setFormState({
-                ...formState,
-                [name]: value       
-        }) 
-      }
+  
+  const [formState, setFormState] = useState(  {
+    nombre: '',
+    email: '',
+    password: '',
+    rol: 'USER_ROLE'
+  })
+  const {email, password, nombre} = formState;
+    const onInputchange = ({target})=>{
+      const {name, value} = target;
+          setFormState({
+              ...formState,
+              [name]: value       
+      }) 
+    }
 
-      const onSubmit = async(event)=>{
-        event.preventDefault();
-            // registrationFetch(name, password, email) <--- aqui viene la comunicacion con el backend
-      }
+    const onSubmit = async(event)=>{
+      event.preventDefault();
+          await registrarUsuario(formState) 
+    }
     return (
       <div className='pb-5 body-bg form-container'>
         <div className='form-wrapper '>
@@ -37,8 +36,8 @@ export const RegistrarUsuarioForm = () => {
                 type="text" 
                 className="form-control" 
                 placeholder='Tu nombre' 
-                name='name'
-                value={name}
+                name='nombre'
+                value={nombre}
                 onChange={onInputchange}
                 />
             </div>
@@ -69,7 +68,7 @@ export const RegistrarUsuarioForm = () => {
                 
                 />
             </div>
-            <button type="submit" className="btn btn-primary create-account__button" onClick={()=>{alert('Falta la integracion de Backend para realizar esta acción')}}>Crear cuenta</button>
+            <button type="submit" className="btn btn-primary create-account__button">Crear cuenta</button>
             </form>
             <a href="/iniciar-sesion" className='pb-3 font-weight-light'>Ya tienes cuenta? Inicia sesión</a>        
         </div>

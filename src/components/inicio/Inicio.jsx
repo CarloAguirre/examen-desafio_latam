@@ -6,8 +6,8 @@ import { Productos } from '../productos/Productos'
 export const Inicio = () => {
 
   const carouselImages = {
-    img1: ".././src/assets/xbox.jpg",
-    img2: ".././src/assets/switch.jpg"
+    img1: "https://res.cloudinary.com/dezwpnks0/image/upload/v1694276988/switch_wv4vn7.webp",
+    img2: "https://res.cloudinary.com/dezwpnks0/image/upload/v1694276988/xbox_jdnrak.webp"
   }
 
   return (  

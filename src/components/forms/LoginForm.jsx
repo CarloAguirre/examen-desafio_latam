@@ -5,24 +5,19 @@ import Cookies from 'universal-cookie'
 
 import { useMarketplace } from '../../context'
 import { useNavigate } from 'react-router-dom'
+import { iniciarSesion } from '../../helpers/iniciarSesion'
 
 
 
 export const LoginForm = () => {
-    const {setUser} = useMarketplace()
-    const navigate = useNavigate()
-    useEffect(() => {
-      const cookies = new Cookies();
-      // const token = cookies.get("token")  <-- Aqui hay que evaluar si guardara el token en un useState o en las cookies
-  }, [])
-    const [formState, setFormState] = useState({
-        id: 1,
-        nombre: 'Tester',
-        mail: '',
-        password: '',
-        rol: 'USER_ROLE'
-      })
+  const {setUser} = useMarketplace()
+  const navigate = useNavigate()
     
+  const [formState, setFormState] = useState(  {
+    email: '',
+    password: '',
+  })
+
       const {email, password} = formState;
     
       const onInputchange = async({target})=>{
@@ -35,13 +30,16 @@ export const LoginForm = () => {
       
       const onSubmit = async(event)=>{
         event.preventDefault();
-            // loginFetch(password, email) <-- Asi se hara con el backend
-            await setUser({...formState, mail: email, password: password })
+          const response = await iniciarSesion(formState)
+          if(response){
+            setUser(response.data.usuario)
+            alert('Sesión iniciada con exito!')
             navigate('/')
+          }
       }    
 
   return (
-    <div className='pb-5 body-bg form-container'>
+    <div className='pb-5 body-bg'>
       <div className='form-wrapper'>
           <form 
           className='login-form'
@@ -83,8 +81,7 @@ export const LoginForm = () => {
             <button className="btn btn-success mb-4" onClick={()=>{navigate('/iniciar-sesion/registration')}}>Crear cuenta</button>
           </div>
       </div>
-      <div className="form-text text-light">*Modo beta: Puedes usar cualquier mail y contraseña para acceder</div>
-      <div id='errorMsg' className='text-center mt-3' ></div>
+      <div id='errorMsg' className='text-center pb-5'></div>
     </div>
   )
 }

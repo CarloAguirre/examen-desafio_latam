@@ -1,10 +1,22 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
-import {  NavLink } from "react-router-dom";
+import {  NavLink, useNavigate } from "react-router-dom";
 import './navbar.scss'
 import { useMarketplace } from "../../context";
+import Cookies from "universal-cookie";
 
 export const NavModel = ()=> {
-  const {carrito, user} = useMarketplace()
+  const {carrito, setUser, user} = useMarketplace()
+  const cookies = new Cookies()
+  const token = cookies.get('token')
+  const navigate = useNavigate()
+
+  const logout = ()=>{
+    setUser({})
+    cookies.remove("nombre")
+    cookies.remove("token")
+    cookies.remove("email")
+    navigate('/') 
+  }
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="md">
@@ -17,8 +29,11 @@ export const NavModel = ()=> {
             {(user.nombre) ? <>
               <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/mi-perfil">Mi Perfil</NavLink>      
               <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/carrito">Carrito {carrito.length > 0 ? '('+ carrito.length + ')' : null}</NavLink>      
-            </>: null}      
-            <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/iniciar-sesion">Iniciar sesión</NavLink>      
+            </>: null}  
+            {
+              (!token)? <NavLink className={({isActive})=>(isActive ? "active-nav" : "navLink")} to="/iniciar-sesion">Iniciar sesión</NavLink> 
+              : <NavLink className={({isActive})=>(isActive ? "navLink" : "navLink")} onClick={logout}>Cerrar Sesión</NavLink> 
+            }                   
           </Nav>
           </Navbar.Collapse>
         </Container>
