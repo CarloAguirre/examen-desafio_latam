@@ -5,8 +5,12 @@ import { SliderProductos } from './SliderProductos';
 import { useMarketplace } from '../../context';
 
 export const Productos = ({page, categoria}) => {
-  const {pageProductos, index, setIndex, handleSelect} = useMarketplace()
+  const {pageProductos, index, setIndex, handleSelect, productos} = useMarketplace()
+  console.log(productos)
+  if(pageProductos.length > 0){
 
+    console.log(pageProductos)
+  }
   return (
     <>
     <div className={page === 'productos'? 'grid-container__principal-productos': 'grid-container__principal'}>

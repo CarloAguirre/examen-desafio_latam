@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MarketplaceProvider } from './context'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import { NavModel } from './components/navbar/Navbar'
 import {
   InicioView,
@@ -17,7 +17,6 @@ import { Footer } from "./components/footer/Footer";
 
 
 function App() {
-
   return (
     <div>
     <MarketplaceProvider>

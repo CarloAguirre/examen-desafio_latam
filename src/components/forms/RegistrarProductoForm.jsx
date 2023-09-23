@@ -29,7 +29,7 @@ export const RegistrarProductoForm = () => {
     const [formState, setFormState] = useState({
         nombre: '',
         id_categoria: '',
-        id_usuario: usuario.id,
+        id_usuario: usuario ? usuario.id : '',
         precio: '',
         descripcion: '',
         img1: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp',
@@ -79,7 +79,7 @@ export const RegistrarProductoForm = () => {
                 onChange={onInputchange}
                 >
                   {
-                    categorias.map(categoria =>(
+                    categorias && categorias.map(categoria =>(
                       <option value={`${categoria.id}`} className='text-center' key={categoria.id} >{categoria.nombre}</option>
                     ))
                   }

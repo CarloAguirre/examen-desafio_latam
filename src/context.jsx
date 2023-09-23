@@ -14,8 +14,9 @@ const [carrito, setCarrito] = useState([])
 const [index, setIndex] = useState(0);
 const [qty, setQty] = useState([])
 const [user, setUser] = useState({})
-const cookies = new Cookies()
+
 const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
+const cookies = new Cookies()
 
 const productosFetch = async()=>{
   const response = await fetch(urlServer + '/api/productos')
@@ -28,8 +29,8 @@ useEffect(() => {
   const userCookie = cookies.get('usuario')
   if (userCookie) {
     try {
-      const userObject = JSON.parse(userCookie);
-      setUser(userObject);
+      // const userObject = JSON.parse(userCookie);
+      setUser(userCookie);
     } catch (error) {
       setUser({})
     }

@@ -12,7 +12,6 @@ export const NavModel = ()=> {
 
   const logout = ()=>{
     setUser({})
-    // cookies.remove("nombre")
     cookies.remove("token")
     cookies.remove("usuario")
     navigate('/') 

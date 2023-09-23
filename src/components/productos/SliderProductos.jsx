@@ -17,7 +17,7 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
   }
   if(page === 'mi-perfil'){
     if(tab === 'favoritos'){
-      let userFavoritos = favoritos.filter(favorito => favorito.user_id === user.id);
+      let userFavoritos = favoritos.filter(favorito => favorito.id_usuario === user.id);
       if (userFavoritos.length > 0){
         let productIds = userFavoritos.map(favorito => favorito.product_id);
         productos = productos.filter(producto => productIds.includes(Number(producto.id)));
