@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useContext } from "react"
 import Cookies from "universal-cookie";
+import { obtenerCategorias } from "./helpers/obtenerCategorias";
 
  const MarketplaceContext = createContext({})
 
@@ -9,6 +10,8 @@ const [productos, setProductos] = useState([]);
 const [categoria, setCategoria] = useState('all')
 const [selectedCategory, setSelectedCategory] = useState('all');
 const [pageProductos, setPageProductos] = useState([])
+const [categorias, setCategorias] = useState([])
+const [categoriaId, setCategoriaId] = useState('')
 const [favoritos, setFavoritos] = useState([])
 const [carrito, setCarrito] = useState([])
 const [index, setIndex] = useState(0);
@@ -18,7 +21,7 @@ const [user, setUser] = useState({})
 const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
 const cookies = new Cookies()
 
-const productosFetch = async()=>{
+const dataFetch = async()=>{
   const response = await fetch(urlServer + '/api/productos')
   const data = await response.json()
   setProductos(data.productos)
@@ -29,46 +32,44 @@ useEffect(() => {
   const userCookie = cookies.get('usuario')
   if (userCookie) {
     try {
-      // const userObject = JSON.parse(userCookie);
       setUser(userCookie);
     } catch (error) {
       setUser({})
     }
   }
 
-  productosFetch()
+  dataFetch()
 }, []);
 
-// useEffect(() => {
-//   const fetchProductos = async()=> {
-//     try {
-//       const productosFetch = await fetch('/db/productos.json');
-//       const productosData = await productosFetch.json();
-//       setProductos(productosData);
-//       setPageProductos(productosData)
-
-//       const favoritosFetch = await fetch('/db/favoritos.json');
-//       const favoritosData = await favoritosFetch.json();
-//       setFavoritos(favoritosData)
-//     } catch (error) {
-//       console.error('Error en el fetch', error);
-//     }
-//   }
-//   fetchProductos();
-// }, []);
+const categoriasFetch = async()=>{
+  await obtenerCategorias()
+  .then(response=> setCategorias(response.data.categorias))      
+}
 
 useEffect(() => {
-  const filtrarProductos = ()=>{
+  categoriasFetch()
+}, [])
 
-    if(categoria != 'all'){
-      const newProductos = productos.filter(producto=> producto.categoria === categoria)
-      setPageProductos(newProductos)
-    }else if(categoria === 'all'){
-      setPageProductos(productos)
+const filtrarProductos = async () => {
+  if (categoria !== 'all') {
+    try {
+      const response = await fetch(urlServer + `/api/categorias/${categoria}`);
+      const data = await response.json();
+      const {id} = data.categoria[0];
+      const newProductos = productos.filter(producto => Number(producto.id_categoria) === id);
+      setPageProductos(newProductos);
+      setCategoriaId(id)
+    } catch (error) {
+      console.error(error);
     }
-  } 
-  filtrarProductos()
-}, [categoria, productos])
+  } else if (categoria === 'all') {
+    setPageProductos(productos);
+  }
+};
+
+useEffect(() => {
+  filtrarProductos();
+}, [categoria]);
 
 const handleSelect = (selectedIndex) => {
   setIndex(selectedIndex);
@@ -84,13 +85,18 @@ const handleSelect = (selectedIndex) => {
        user,
        setUser,
        favoritos,
+       setFavoritos,
        carrito,
        setCarrito,
        index, 
        setIndex ,
        handleSelect,
        qty,
-       setQty  
+       setQty,
+       categorias,
+       setCategorias,
+       urlServer,
+       categoriaId  
       }
         return (
             <MarketplaceContext.Provider

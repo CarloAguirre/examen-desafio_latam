@@ -1,18 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useMarketplace } from '../../context'
 import ControlledTabs from './ControlledTabs'
 import Button from 'react-bootstrap/Button';
 import './miPerfil.scss'
 import { useNavigate } from 'react-router-dom';
+import { obtenerFavoritos } from '../../helpers/obtenerFavoritos';
 
 export const MiPerfil = () => {
-  const {user, productos, favoritos} = useMarketplace()
-  console.log(productos)
+  const {user, productos, setFavoritos} = useMarketplace()
+
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+
+  const favoritosFetch = async()=>{
+    const favoritos = await obtenerFavoritos()
+    setFavoritos(favoritos)
+  }
+
+  useEffect(() => {
+    favoritosFetch()
+  }, [])
+  
 
   return (
     <div className='user-info__container'>

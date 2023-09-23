@@ -4,20 +4,23 @@ import Modal from 'react-bootstrap/Modal';
 import './modal.scss';
 import { useNavigate } from 'react-router-dom';
 import { useMarketplace } from '../../context';
+import { registrarFavorito } from '../../helpers/registrarFavorito';
+import Cookies from 'universal-cookie';
 
 function ModalModel({producto, page}) {
   const [show, setShow] = useState(false);
-  const {setCarrito, carrito, user} = useMarketplace()
+  const {setCarrito, carrito, user, urlServer} = useMarketplace()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const cookies = new Cookies()
+  const token = cookies.get('token')
   const navigate = useNavigate()
   const irAProducto = () => {
     navigate(`/productos/${producto.categoria}/${producto.id}`);
   };
 
-  const addAction = ()=>{
-    alert("Es necesaria la integracion del backend y la base de datos para la ejecución de esta acción")
+  const addFavorito = async()=>{
+    await registrarFavorito(user.id, producto.id, token)
   }
 
   const addCarrito = () => {
@@ -51,7 +54,7 @@ function ModalModel({producto, page}) {
           </Button>
           {((page === 'inicio' && user.nombre) || (page === 'productos' && user.nombre))? 
           <>
-          <Button variant="danger" onClick={addAction} className="custom-modal-buttons">
+          <Button variant="danger" onClick={addFavorito} className="custom-modal-buttons">
             Añadir a favoritos <span className="material-icons-outlined">
           favorite_border
           </span>

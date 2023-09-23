@@ -7,20 +7,20 @@ import { useMarketplace } from '../../context';
 import { TableTemplate } from '../carrito/TableTemplate';
 
 export const SliderProductos = ({handleSelect, index, pageProductos, categoria, page, tab}) => {
-  const {user, favoritos, carrito, setCarrito} = useMarketplace()
+  const {user, favoritos, categoriaId} = useMarketplace()
   let productos = pageProductos;
   if(categoria === true){
     const {categoria}= useParams()
     if(categoria != 'all'){
-      productos = productos.filter(producto=> producto.categoria === categoria)
+      productos = productos.filter(producto => Number(producto.id_categoria) === categoriaId);
     }
   }
   if(page === 'mi-perfil'){
     if(tab === 'favoritos'){
-      let userFavoritos = favoritos.filter(favorito => favorito.id_usuario === user.id);
-      if (userFavoritos.length > 0){
-        let productIds = userFavoritos.map(favorito => favorito.product_id);
-        productos = productos.filter(producto => productIds.includes(Number(producto.id)));
+        let userFavoritos = favoritos.data.favoritos.filter(favorito => Number(favorito.id_usuario) === user.id);
+        if (userFavoritos.length > 0){
+          let productIds = userFavoritos.map(favorito => favorito.id_producto);
+          productos = productos.filter(producto => productIds.includes(producto.id.toString()));       
       }
     }else{
       productos = productos.filter(producto=> Number(producto.id_usuario) === Number(user.id))

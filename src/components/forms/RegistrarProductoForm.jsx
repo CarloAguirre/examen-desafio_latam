@@ -2,28 +2,16 @@
 import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react'
 import './loginForm.scss'
-
-import { useMarketplace } from '../../context'
-import { useNavigate } from 'react-router-dom'
-import { obtenerCategorias } from '../../helpers/obtenerCategorias'
 import { registrarProducto } from '../../helpers/registrarProducto'
+import { useMarketplace } from '../../context';
 
 
 export const RegistrarProductoForm = () => {
-    const navigate = useNavigate()
-    const [categorias, setCategorias] = useState([])
+    
     const cookies = new Cookies()
     const token = cookies.get('token')
     const usuario = cookies.get('usuario')
-    
-    const categoriasFetch = async()=>{
-      await obtenerCategorias()
-      .then(response=> setCategorias(response.data.categorias))      
-    }
-    
-    useEffect(() => {
-      categoriasFetch()
-    }, [])
+    const {categorias} = useMarketplace()
   
 
     const [formState, setFormState] = useState({

@@ -3,8 +3,6 @@ import axios from 'axios';
 export const registrarProducto = async (producto, token) => {
     const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
     const endpoint = "/api/productos";
-
-    console.log(token)
     const headers = {
       'Authorization': `Bearer ${token}`
     };

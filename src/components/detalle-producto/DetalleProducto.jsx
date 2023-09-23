@@ -12,7 +12,7 @@ export const DetalleProducto = ({producto}) => {
           <img src={producto.img2} alt="logo_producto" style={{width: '30%'}}/>
           <div className='producto-details'>
             <h1 className='mb-4'>{producto.nombre}</h1>
-              <p>{producto.desc}</p>
+              <p>{producto.descripcion}</p>
               <div className='precio-container'>
                 <h2>PRECIO <span>${producto.precio}</span></h2>
               </div>
