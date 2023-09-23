@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const MiPerfil = () => {
   const {user, productos, favoritos} = useMarketplace()
+  console.log(productos)
   const navigate = useNavigate()
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => {
@@ -23,7 +24,7 @@ export const MiPerfil = () => {
         </div>
         <div className='user-info mb-5'>
           <h3>Mail</h3>
-            <p>{user.mail}</p>
+            <p>{user.email}</p>
         </div>
       </div>
       <Button variant="info" className='add-product__btn' onClick={()=>{navigate('/mi-perfil/registrar-producto')}}>Agregar <br />Producto</Button>

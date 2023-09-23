@@ -7,7 +7,6 @@ export const iniciarSesion = async (data) => {
   
     try {
       const response = await axios.post(urlServer + endpoint, data);
-      console.log(response.data.usuario)
       cookies.set('token', response.data.token, {"path": "/"})
       cookies.set('usuario', response.data.usuario, {"path": "/"})
       return response

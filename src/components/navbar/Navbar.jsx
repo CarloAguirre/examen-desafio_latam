@@ -12,9 +12,9 @@ export const NavModel = ()=> {
 
   const logout = ()=>{
     setUser({})
-    cookies.remove("nombre")
+    // cookies.remove("nombre")
     cookies.remove("token")
-    cookies.remove("email")
+    cookies.remove("usuario")
     navigate('/') 
   }
   return (

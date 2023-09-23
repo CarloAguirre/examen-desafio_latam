@@ -23,7 +23,7 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
         productos = productos.filter(producto => productIds.includes(Number(producto.id)));
       }
     }else{
-      productos = productos.filter(producto=> Number(producto.user_id) === Number(user.id))
+      productos = productos.filter(producto=> Number(producto.id_usuario) === Number(user.id))
     }
   }
   return (

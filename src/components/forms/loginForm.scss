@@ -109,9 +109,9 @@
     // max-height: 100vh;
 } 
 
-.body-bg__createTour{
-    background-color: #c84614;
-    min-width: 100vw;
-    min-height: 100vh;
-}
+input[type="file"][disabled] {
+    opacity: 0.5;
+    pointer-events: none; 
+    cursor: not-allowed; 
+  }
 

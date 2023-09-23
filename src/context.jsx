@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react"
+import Cookies from "universal-cookie";
 
  const MarketplaceContext = createContext({})
 
@@ -13,23 +14,47 @@ const [carrito, setCarrito] = useState([])
 const [index, setIndex] = useState(0);
 const [qty, setQty] = useState([])
 const [user, setUser] = useState({})
-useEffect(() => {
-  const fetchProductos = async()=> {
-    try {
-      const productosFetch = await fetch('/db/productos.json');
-      const productosData = await productosFetch.json();
-      setProductos(productosData);
-      setPageProductos(productosData)
+const cookies = new Cookies()
+const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
 
-      const favoritosFetch = await fetch('/db/favoritos.json');
-      const favoritosData = await favoritosFetch.json();
-      setFavoritos(favoritosData)
+const productosFetch = async()=>{
+  const response = await fetch(urlServer + '/api/productos')
+  const data = await response.json()
+  setProductos(data.productos)
+  setPageProductos(data.productos)
+}
+
+useEffect(() => {
+  const userCookie = cookies.get('usuario')
+  if (userCookie) {
+    try {
+      const userObject = JSON.parse(userCookie);
+      setUser(userObject);
     } catch (error) {
-      console.error('Error en el fetch', error);
+      setUser({})
     }
   }
-  fetchProductos();
+
+  productosFetch()
 }, []);
+
+// useEffect(() => {
+//   const fetchProductos = async()=> {
+//     try {
+//       const productosFetch = await fetch('/db/productos.json');
+//       const productosData = await productosFetch.json();
+//       setProductos(productosData);
+//       setPageProductos(productosData)
+
+//       const favoritosFetch = await fetch('/db/favoritos.json');
+//       const favoritosData = await favoritosFetch.json();
+//       setFavoritos(favoritosData)
+//     } catch (error) {
+//       console.error('Error en el fetch', error);
+//     }
+//   }
+//   fetchProductos();
+// }, []);
 
 useEffect(() => {
   const filtrarProductos = ()=>{

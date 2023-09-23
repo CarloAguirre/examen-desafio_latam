@@ -1,33 +1,46 @@
 
+import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react'
 import './loginForm.scss'
-import Cookies from 'universal-cookie'
 
 import { useMarketplace } from '../../context'
 import { useNavigate } from 'react-router-dom'
+import { obtenerCategorias } from '../../helpers/obtenerCategorias'
+import { registrarProducto } from '../../helpers/registrarProducto'
 
 
 export const RegistrarProductoForm = () => {
-    const {setUser} = useMarketplace()
     const navigate = useNavigate()
+    const [categorias, setCategorias] = useState([])
+    const cookies = new Cookies()
+    const token = cookies.get('token')
+    const usuario = cookies.get('usuario')
+    
+    const categoriasFetch = async()=>{
+      await obtenerCategorias()
+      .then(response=> setCategorias(response.data.categorias))      
+    }
+    
     useEffect(() => {
-      const cookies = new Cookies();
-      // const token = cookies.get("token")  <-- Aqui hay que evaluar si guardara el token en un useState o en las cookies
-  }, [])
+      categoriasFetch()
+    }, [])
+  
+
     const [formState, setFormState] = useState({
-        usuario_id: '',
-        categoria_id: '',
         nombre: '',
+        id_categoria: '',
+        id_usuario: usuario.id,
         precio: '',
         descripcion: '',
-        imgs: ''
+        img1: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp',
+        img2: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1693330539/sega_abtjgg.webp'
       })
     
-      const {nombre, precio, descripcion, imgs} = formState;
+      const {nombre, id_categoria, id_usuario, precio, descripcion, img1, img2} = formState;
     
-      const onInputchange = async({target})=>{
+      const onInputchange =({target})=>{
         const {name, value} = target;
-        await setFormState({
+          setFormState({
                 ...formState,
                 [name]: value       
         }) 
@@ -35,9 +48,8 @@ export const RegistrarProductoForm = () => {
       
       const onSubmit = async(event)=>{
         event.preventDefault();
-            alert("Se requiere la implementacion del backend para realizar esta acción")
-            // createProductFetch(password, email) <-- Asi se hara con el backend          
-            navigate('/mi-perfil')
+            await registrarProducto(formState, token)       
+            // navigate('/mi-perfil')
       }    
 
   return (
@@ -51,11 +63,28 @@ export const RegistrarProductoForm = () => {
                 <input 
                 type="text" 
                 className="form-control" 
-                placeholder='Tu nombre' 
+                placeholder='nombre' 
                 name='nombre'
                 value={nombre}
                 onChange={onInputchange}
                 />
+            </div>
+            <div className="form-floating filter-custom">
+                <select 
+                className="form-select" 
+                id="floatingSelect" 
+                aria-label="Floating label select example"
+                name='id_categoria'
+                value={id_categoria}
+                onChange={onInputchange}
+                >
+                  {
+                    categorias.map(categoria =>(
+                      <option value={`${categoria.id}`} className='text-center' key={categoria.id} >{categoria.nombre}</option>
+                    ))
+                  }
+                </select>
+                <label htmlFor="floatingSelect">Selecciona una opción</label>
             </div>
             <div className="mb-3">
                 <label className="form-label">Precio</label>
@@ -80,13 +109,14 @@ export const RegistrarProductoForm = () => {
                 />
             </div>
             <div className="mb-3">
-                <label className="form-label">Imagenes</label>
+                <label className="form-label">Imagenes (en desarrollo)</label>
                 <input 
                 type="file" 
                 className="form-control" 
                 name='imgs'
-                value={imgs}
+                // value={imgs}
                 onChange={onInputchange}
+                disabled
                 />
             </div>
           <hr />
