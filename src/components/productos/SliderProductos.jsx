@@ -4,7 +4,6 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import { useParams } from 'react-router-dom';
 import { useMarketplace } from '../../context';
-import { TableTemplate } from '../carrito/TableTemplate';
 
 export const SliderProductos = ({handleSelect, index, pageProductos, categoria, page, tab}) => {
   const {user, favoritos, categoriaId} = useMarketplace()
@@ -17,8 +16,13 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
   }
   if(page === 'mi-perfil'){
     if(tab === 'favoritos'){
+      console.log(Number(favoritos.data.favoritos[0].id_usuario))
+      console.log(user.id)
+
         let userFavoritos = favoritos.data.favoritos.filter(favorito => Number(favorito.id_usuario) === user.id);
-        if (userFavoritos.length > 0){
+        
+        if (userFavoritos){
+          console.log('estoy aqui')
           let productIds = userFavoritos.map(favorito => favorito.id_producto);
           productos = productos.filter(producto => productIds.includes(producto.id.toString()));       
       }

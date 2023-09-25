@@ -57,6 +57,7 @@ export const RegistrarProductoForm = () => {
                 onChange={onInputchange}
                 />
             </div>
+            <label className="form-label">Categoría</label>
             <div className="form-floating filter-custom">
                 <select 
                 className="form-select" 
@@ -72,9 +73,9 @@ export const RegistrarProductoForm = () => {
                     ))
                   }
                 </select>
-                <label htmlFor="floatingSelect">Selecciona una opción</label>
+                <label htmlFor="floatingSelect">Selecciona una categoria</label>
             </div>
-            <div className="mb-3">
+            <div className="mb-3 mt-3">
                 <label className="form-label">Precio</label>
                 <input 
                 type="number" 

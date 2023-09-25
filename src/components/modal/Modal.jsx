@@ -9,14 +9,16 @@ import Cookies from 'universal-cookie';
 
 function ModalModel({producto, page}) {
   const [show, setShow] = useState(false);
-  const {setCarrito, carrito, user, urlServer} = useMarketplace()
+  const {setCarrito, carrito, user, urlServer, categorias} = useMarketplace()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const cookies = new Cookies()
   const token = cookies.get('token')
   const navigate = useNavigate()
   const irAProducto = () => {
-    navigate(`/productos/${producto.categoria}/${producto.id}`);
+    const thisCategoria = categorias.find(categoria => categoria.id === Number(producto.id_categoria))
+    console.log(thisCategoria)
+    navigate(`/productos/${thisCategoria.nombre}/${producto.id}`);
   };
 
   const addFavorito = async()=>{
