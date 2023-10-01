@@ -16,13 +16,8 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
   }
   if(page === 'mi-perfil'){
     if(tab === 'favoritos'){
-      console.log(Number(favoritos.data.favoritos[0].id_usuario))
-      console.log(user.id)
-
-        let userFavoritos = favoritos.data.favoritos.filter(favorito => Number(favorito.id_usuario) === user.id);
-        
+        let userFavoritos = favoritos.data.favoritos.filter(favorito => Number(favorito.id_usuario) === user.id);       
         if (userFavoritos){
-          console.log('estoy aqui')
           let productIds = userFavoritos.map(favorito => favorito.id_producto);
           productos = productos.filter(producto => productIds.includes(producto.id.toString()));       
       }
@@ -43,19 +38,19 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
         
         return (
           <Carousel.Item key={productoIndex}>
-            <div className="page-counter">
-            {
-              (page === 'mi-perfil' && tab === 'favoritos') ? (
-                <h1 className='text-light'>FAVORITOS</h1>
-              ) : (page === 'mi-perfil') ? (
-                <h1 className='text-light'>MIS PRODUCTOS</h1>
-              ): (page === 'carrito') ? (
-                <h1 className='text-light'>CARRITO</h1>
-              ) : (page === 'productos' || page === 'inicio') ? (
-                <h1 className='text-light'>PRODUCTOS</h1>
-              ) : null 
-            }
-              <h5>Página {index + 1} de {Math.round(productos.length/group)}</h5>
+           <div className="page-counter">
+              <div className="page-counter-content">
+                {(page === 'mi-perfil' && tab === 'favoritos') ? (
+                  <h1 className='text-light'>FAVORITOS</h1>
+                ) : (page === 'mi-perfil') ? (
+                  <h1 className='text-light'>MIS PRODUCTOS</h1>
+                ): (page === 'carrito') ? (
+                  <h1 className='text-light'>CARRITO</h1>
+                ) : (page === 'productos' || page === 'inicio') ? (
+                  <h1 className='text-light'>PRODUCTOS</h1>
+                ) : null}
+                <h5>Página {index + 1} de {Math.round(productos.length/group)}</h5>
+              </div>
             </div>
             <main className={(page ==='mi-perfil')? 'main-custom' : ''}>
               {grupoProductos.map((productoGrupo) => (            

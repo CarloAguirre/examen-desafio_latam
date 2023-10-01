@@ -54,7 +54,7 @@ function ModalModel({producto, page}) {
           open_in_browser
           </span>
           </Button>
-          {((page === 'inicio' && user.nombre) || (page === 'productos' && user.nombre))? 
+          {((page === 'inicio' && user.email) || (page === 'productos' && user.email))? 
           <>
           <Button variant="danger" onClick={addFavorito} className="custom-modal-buttons">
             Añadir a favoritos <span className="material-icons-outlined">
@@ -66,7 +66,8 @@ function ModalModel({producto, page}) {
           add_shopping_cart
           </span>
           </Button>  
-          </> : <div className="form-text text-light">*Inicia sesion para ver mas opciones</div>}
+          </> : (!user.email)? <div className="form-text text-light">*<a href="https://marketplace-dl.netlify.app/iniciar-sesion" target="_blank">Inicia sesion</a> para ver mas opciones</div>
+              :null}
           
         </Modal.Body>
         <Modal.Footer className="custom-modal-footer">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useMarketplace } from '../../context'
 import { useNavigate, useParams } from 'react-router-dom';
+import { Carrito } from '../carrito/Carrito';
 
 
 export const Aside = ({page, setIndex}) => {
@@ -30,8 +31,8 @@ export const Aside = ({page, setIndex}) => {
   return (
     <aside className="shadow-aside">
     {
-      (page=== 'productos')? <h4 className='my-4 ms-3'> FILTROS</h4>
-                           : <h4 className='my-4 ms-3'> CATEGORIAS</h4>
+      (page=== 'productos')? <h4 className='py-4 ps-3 mb-0'> FILTROS</h4>
+                           : <h4 className='py-4 ps-3 mb-0'> CATEGORIAS</h4>
     }
     <div className={page === 'productos' ? 'categorias-productos' : 'categorias'}>
       <div className={`categoria ${selectedCategory === 'all' ? 'active-categoria' : ''}`} onClick={()=>handleCategoryClick('all')}>
@@ -67,6 +68,7 @@ export const Aside = ({page, setIndex}) => {
         <p > ATARI</p>   
       </div>
     </div>
+    {/* <Carrito /> */}
     </aside>
 
   )
