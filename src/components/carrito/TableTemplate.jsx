@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useMarketplace } from '../../context';
+import './carrito.scss'
 
 export const TableTemplate = () => {
     const {setCarrito, carrito} = useMarketplace()
@@ -47,7 +48,7 @@ export const TableTemplate = () => {
 
   return (
     (carrito.length > 0) ? (
-      <div>
+      <div className='table-custom'>
         <Table striped bordered hover variant="dark" className='mt-5'>
           <thead>
             <tr>

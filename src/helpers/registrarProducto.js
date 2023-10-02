@@ -7,9 +7,11 @@ export const registrarProducto = async (producto, token) => {
       'Authorization': `Bearer ${token}`
     };
     try {
-      await axios.post(urlServer + endpoint, producto, { headers });
+      const response = await axios.post(urlServer + endpoint, producto, { headers });
+      return response
       alert("producto creado exitosamente!");
-      window.location.href = "/mi-perfil"
+      
+      // window.location.href = "/mi-perfil"
     } catch (error) {
       console.log(error)
       const {msg} = error.response.data;

@@ -68,7 +68,8 @@ export const Aside = ({page, setIndex}) => {
         <p > ATARI</p>   
       </div>
     </div>
-    {/* <Carrito /> */}
+    <h4 className='py-4 ps-3 mb-0 carrito-label'> CARRITO</h4>
+    <Carrito page={'inicio'} />
     </aside>
 
   )

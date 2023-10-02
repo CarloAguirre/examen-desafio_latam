@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import './loginForm.scss'
 import { registrarProducto } from '../../helpers/registrarProducto'
 import { useMarketplace } from '../../context';
+import { cargarImagen } from '../../helpers/uploadImagen';
+// import { cargarImagen } from '../../helpers/uploadImagen.js';
 
 
 export const RegistrarProductoForm = () => {
@@ -13,18 +15,21 @@ export const RegistrarProductoForm = () => {
     const usuario = cookies.get('usuario')
     const {categorias} = useMarketplace()
   
-
+    const [archivo, setArchivo] = useState({
+      img1: null,
+      img2: null
+    });
     const [formState, setFormState] = useState({
         nombre: '',
         id_categoria: '',
         id_usuario: usuario ? usuario.id : '',
         precio: '',
         descripcion: '',
-        img1: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1693410358/dreamcast_t7bbwa.webp',
-        img2: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1693330539/sega_abtjgg.webp'
+        img1: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1696264904/no-image_sfbzvl.webp',
+        img2: 'https://res.cloudinary.com/dezwpnks0/image/upload/v1696264904/no-image_sfbzvl.webp'
       })
     
-      const {nombre, id_categoria, id_usuario, precio, descripcion, img1, img2} = formState;
+      const {nombre, id_categoria, id_usuario, precio, descripcion} = formState;
     
       const onInputchange =({target})=>{
         const {name, value} = target;
@@ -34,10 +39,24 @@ export const RegistrarProductoForm = () => {
         }) 
       }
       
+      const {img1, img2} = archivo
+
+      const onFileChange = ({target})=>{
+        const {name, files} = target
+        setArchivo({
+          ...archivo,
+          [name]: files[0]      
+  }) 
+      }
+
       const onSubmit = async(event)=>{
         event.preventDefault();
             await registrarProducto(formState, token)       
-            // navigate('/mi-perfil')
+            .then(async(response)=>{
+              console.log(response)
+              const {id} = response.data.producto
+              await cargarImagen(id, img1, img2)
+            })
       }    
 
   return (
@@ -98,14 +117,21 @@ export const RegistrarProductoForm = () => {
                 />
             </div>
             <div className="mb-3">
-                <label className="form-label">Imagenes (en desarrollo)</label>
+                <label className="form-label">Imagenes de Producto</label>
                 <input 
                 type="file" 
                 className="form-control" 
-                name='imgs'
-                // value={imgs}
-                onChange={onInputchange}
-                disabled
+                name='img1'
+                onChange={onFileChange}
+                />
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Imagenes Logo</label>
+                <input 
+                type="file" 
+                className="form-control" 
+                name='img2'
+                onChange={onFileChange}
                 />
             </div>
           <hr />
