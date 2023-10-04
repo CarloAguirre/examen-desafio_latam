@@ -64,7 +64,7 @@ export const SliderProductos = ({handleSelect, index, pageProductos, categoria, 
               {grupoProductos.map((productoGrupo) => (            
                 <div key={productoGrupo.id}>
                   <div className="producto-datos shadow">
-                    <img src={`${productoGrupo.img1}`} style={{ width:'330px', maxHeight: '200px' }} alt={productoGrupo.nombre} />
+                    <img src={`${productoGrupo.img1}`} style={{ width:'330px', maxHeight: '200px', minWidth: '20%'}} alt={productoGrupo.nombre} />
                     <ModalModel producto={productoGrupo} page={page}/>
                     <h3>{productoGrupo.nombre}</h3>
                     <p>${(productoGrupo.precio).toLocaleString('en-US', {

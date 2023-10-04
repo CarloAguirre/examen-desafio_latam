@@ -31,7 +31,7 @@ export const Aside = ({page, setIndex}) => {
   return (
     <aside className="shadow-aside">
     {
-      (page=== 'productos')? <h4 className='py-4 ps-3 mb-0'> FILTROS</h4>
+      (page=== 'productos')? <h4 className='py-4 ps-3 mb-0 custom-h4'> FILTROS</h4>
                            : <h4 className='py-4 ps-3 mb-0'> CATEGORIAS</h4>
     }
     <div className={page === 'productos' ? 'categorias-productos' : 'categorias'}>
