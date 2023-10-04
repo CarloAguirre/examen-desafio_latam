@@ -40,7 +40,7 @@ export const MiPerfil = () => {
       </div>
       <Button variant="info" className='add-product__btn' onClick={()=>{navigate('/mi-perfil/registrar-producto')}}>Agregar <br />Producto</Button>
       </div>
-      <ControlledTabs handleSelect={handleSelect} index={index} pageProductos={productos} categoria={"all"} />
+      <ControlledTabs handleSelect={handleSelect} index={index} pageProductos={productos} categoria={"all"} allProductos={productos} />
     </div>
   )
 }

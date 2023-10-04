@@ -1,11 +1,9 @@
 import axios from 'axios';
 import FormData from 'form-data'
 
-export const cargarImagen = (id, archivo1, archivo2)=>{
-  console.log(archivo1)
-  console.log(archivo2)
-// const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
-const urlServer = 'http://localhost:8080';
+export const cargarImagen = (id, archivo1, archivo2, setSpinner)=>{
+const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
+// const urlServer = 'http://localhost:8080';
 const endpoint = "/api/uploads/productos/";
 
 var data = new FormData();
@@ -24,10 +22,17 @@ let config = {
 
 axios.request(config)
 .then((response) => {
-  console.log(JSON.stringify(response.data));
+  alert("producto creado exitosamente!");
+  setSpinner(false)   
+  window.location.href = "/mi-perfil"
 })
 .catch((error) => {
-  console.log(error);
+  setSpinner(false)
+  const {msg} = error.response.data;
+  document.getElementById('errorMsg').innerHTML = `
+  <p>
+      ${msg}
+  </p>`
 });
 
 }

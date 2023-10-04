@@ -6,13 +6,27 @@
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 1060px){
+    .carrito-container{
+        display: none;
+    }   
+}
+.carrito-display__none{
+    display: none;
+}
 .carrito-scale{
-    margin-top: 5rem;
     min-height: 5vh !important;
     min-width: 19vw !important;
     width: 200px !important;
     height: 200px !important;
     scale: .68 !important;
+}
+.carrito-scale__empty{
+    min-height: 5vh !important;
+    min-width: 19vw !important;
+    width: 200px !important;
+    height: 200px !important;
+    scale: .4 !important;
 }
 @media (min-width: 1060px){
     .custom-img{

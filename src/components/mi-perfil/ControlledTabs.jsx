@@ -3,7 +3,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { SliderProductos } from '../productos/SliderProductos';
 import './MiPerfil.scss'
-function ControlledTabs({handleSelect, index, pageProductos, favoritos}) {
+function ControlledTabs({handleSelect, index, pageProductos, favoritos, allProductos}) {
   const [key, setKey] = useState('home');
   return (
     <Tabs
@@ -14,12 +14,12 @@ function ControlledTabs({handleSelect, index, pageProductos, favoritos}) {
     >
       <Tab eventKey="home" title="Mis Publicaciones">
         <div className='slider-wrapper'>
-          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"} tab={key === 'profile' ? 'favoritos' : ''}/>
+          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"} tab={key === 'profile' ? 'favoritos' : ''} allProductos={allProductos}/>
         </div>
       </Tab>
       <Tab eventKey="profile" title="Favoritos">
         <div className='slider-wrapper'>
-          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"} tab={key === 'profile' ? 'favoritos' : ''}/>
+          <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={"all"} page={"mi-perfil"} tab={key === 'profile' ? 'favoritos' : ''} allProductos={allProductos}/>
         </div>
       </Tab>
     </Tabs>

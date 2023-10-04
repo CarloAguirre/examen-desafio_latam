@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './loginForm.scss'
 import { registrarUsuario } from '../../helpers/registrarUsuario'
+import { SpinnerLoading } from '../spinner/Spinner'
 
 export const RegistrarUsuarioForm = () => {
-  
+  const [spinner, setSpinner] = useState(false)
   const [formState, setFormState] = useState(  {
     nombre: '',
     email: '',
@@ -21,7 +22,8 @@ export const RegistrarUsuarioForm = () => {
 
     const onSubmit = async(event)=>{
       event.preventDefault();
-          await registrarUsuario(formState) 
+          setSpinner(true)
+          await registrarUsuario(formState, setSpinner) 
     }
     return (
       <div className='pb-5 body-bg form-container'>
@@ -68,7 +70,9 @@ export const RegistrarUsuarioForm = () => {
                 
                 />
             </div>
-            <button type="submit" className="btn btn-primary create-account__button">Crear cuenta</button>
+            {
+            (spinner === true) ? <SpinnerLoading />
+            :<button type="submit" className="btn btn-primary create-account__button">Crear cuenta</button>}         
             </form>
             <a href="/iniciar-sesion" className='pb-3 font-weight-light'>Ya tienes cuenta? Inicia sesión</a>        
         </div>

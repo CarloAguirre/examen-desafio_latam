@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-export const iniciarSesion = async (data) => {
+export const iniciarSesion = async (data, setSpinner) => {
   const cookies = new Cookies()
   const urlServer = import.meta.env.VITE_REACT_APP_APIURL;
   const endpoint = "/api/auth/login";
@@ -11,6 +11,7 @@ export const iniciarSesion = async (data) => {
       cookies.set('usuario', response.data.usuario, {"path": "/"})
       return response
     } catch (error) {
+      setSpinner(false)
       const {msg} = error.response.data;
       document.getElementById('errorMsg').innerHTML = `
       <p>

@@ -166,6 +166,15 @@
       color: #cb7a09;
     }
   }
+  .no-image__weapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 255px;
+  }
+  .no-image__resize{
+    scale: 1;
+  }
   @media (max-width: 1500px){
     main, .main-custom {
       grid-area: main;

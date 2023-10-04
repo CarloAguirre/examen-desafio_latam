@@ -6,13 +6,14 @@ import Cookies from 'universal-cookie'
 import { useMarketplace } from '../../context'
 import { useNavigate } from 'react-router-dom'
 import { iniciarSesion } from '../../helpers/iniciarSesion'
+import { SpinnerLoading } from '../spinner/Spinner'
 
 
 
 export const LoginForm = () => {
   const {setUser} = useMarketplace()
   const navigate = useNavigate()
-    
+  const [spinner, setSpinner] = useState(false)
   const [formState, setFormState] = useState(  {
     email: '',
     password: '',
@@ -30,8 +31,10 @@ export const LoginForm = () => {
       
       const onSubmit = async(event)=>{
         event.preventDefault();
-          const response = await iniciarSesion(formState)
+        setSpinner(true)
+          const response = await iniciarSesion(formState, setSpinner)
           if(response){
+            setSpinner(false)
             setUser(response.data.usuario)
             alert('Sesión iniciada con exito!')
             navigate('/')
@@ -72,9 +75,11 @@ export const LoginForm = () => {
               
               />
           </div>
-          <button type="submit" className="btn btn-primary button-width" 
-          onClick={onSubmit}
-          >Iniciar Sesión</button>
+          {
+            (spinner === true) ? <SpinnerLoading />
+            :<button type="submit" className="btn btn-primary button-width" 
+            onClick={onSubmit}
+            >Iniciar Sesión</button> }
           <hr />
           </form>
           <div>

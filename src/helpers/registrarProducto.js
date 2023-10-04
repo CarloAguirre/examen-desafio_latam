@@ -9,9 +9,6 @@ export const registrarProducto = async (producto, token) => {
     try {
       const response = await axios.post(urlServer + endpoint, producto, { headers });
       return response
-      alert("producto creado exitosamente!");
-      
-      // window.location.href = "/mi-perfil"
     } catch (error) {
       console.log(error)
       const {msg} = error.response.data;

@@ -10,7 +10,7 @@ export const Productos = ({page, categoria}) => {
     <>
     <div className={page === 'productos'? 'grid-container__principal-productos': 'grid-container__principal'}>
       <Aside page={page} setIndex={setIndex}/>
-      <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={categoria} page={page} setIndex={setIndex}/>
+      <SliderProductos handleSelect={handleSelect} index={index} pageProductos={pageProductos} categoria={categoria} page={page} setIndex={setIndex} allProductos={productos}/>
     </div>
       </>
   )

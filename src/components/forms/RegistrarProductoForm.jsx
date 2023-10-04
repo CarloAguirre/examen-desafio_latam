@@ -5,6 +5,7 @@ import './loginForm.scss'
 import { registrarProducto } from '../../helpers/registrarProducto'
 import { useMarketplace } from '../../context';
 import { cargarImagen } from '../../helpers/uploadImagen';
+import { SpinnerLoading } from '../spinner/Spinner';
 // import { cargarImagen } from '../../helpers/uploadImagen.js';
 
 
@@ -14,14 +15,14 @@ export const RegistrarProductoForm = () => {
     const token = cookies.get('token')
     const usuario = cookies.get('usuario')
     const {categorias} = useMarketplace()
-  
+    const [spinner, setSpinner] = useState(false)
     const [archivo, setArchivo] = useState({
       img1: null,
       img2: null
     });
     const [formState, setFormState] = useState({
         nombre: '',
-        id_categoria: '',
+        id_categoria: 1,
         id_usuario: usuario ? usuario.id : '',
         precio: '',
         descripcion: '',
@@ -51,16 +52,17 @@ export const RegistrarProductoForm = () => {
 
       const onSubmit = async(event)=>{
         event.preventDefault();
+        setSpinner(true)
             await registrarProducto(formState, token)       
             .then(async(response)=>{
-              console.log(response)
               const {id} = response.data.producto
-              await cargarImagen(id, img1, img2)
+              await cargarImagen(id, img1, img2, setSpinner)
             })
       }    
 
   return (
-    <div className='pb-5 body-bg form-container'>
+    <>
+      <div className='pb-5 body-bg form-container'>
       <div className='form-wrapper'>
           <form 
           className='login-form'
@@ -89,8 +91,8 @@ export const RegistrarProductoForm = () => {
                   {
                     categorias && categorias.map(categoria =>(
                       <option value={`${categoria.id}`} className='text-center' key={categoria.id} >{categoria.nombre}</option>
-                    ))
-                  }
+                      ))
+                    }
                 </select>
                 <label htmlFor="floatingSelect">Selecciona una categoria</label>
             </div>
@@ -135,14 +137,19 @@ export const RegistrarProductoForm = () => {
                 />
             </div>
           <hr />
+          {
+            (spinner === true) ? <SpinnerLoading />
+            : 
           <button type="submit" className="btn btn-primary button-width" 
           onClick={onSubmit}
           >Crear producto</button>
+          }
           </form>
 
       </div>
       <div id='errorMsg' className='text-center mt-3' ></div>
-    </div>
+    </div>  
+    </>
   )
 }
 

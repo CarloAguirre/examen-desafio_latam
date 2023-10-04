@@ -67,9 +67,12 @@ export const Aside = ({page, setIndex}) => {
         </div>
         <p > ATARI</p>   
       </div>
+
+      <div className= {page === 'productos' ? 'carrito-container carrito-display__none' : 'carrito-container'}>
+        <h4 className='py-4 ps-3 mb-0 carrito-label'> CARRITO</h4>
+        <Carrito page={'inicio'} />
+      </div>
     </div>
-    <h4 className='py-4 ps-3 mb-0 carrito-label'> CARRITO</h4>
-    <Carrito page={'inicio'} />
     </aside>
 
   )

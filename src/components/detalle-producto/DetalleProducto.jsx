@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { useMarketplace } from '../../context';
 
 export const DetalleProducto = ({producto}) => {
-  const {carrito, setCarrito} = useMarketplace()
+  const {carrito, setCarrito, user} = useMarketplace()
   const addCarrito = () => {
     const productoId = producto.id
     const isProductoInCarrito = carrito.some((item) => item.id === productoId)
@@ -23,7 +23,7 @@ export const DetalleProducto = ({producto}) => {
         <CarouselSlider img1={producto.img1} img2={producto.img2} />
       </div>
       <div className='producto-descripcion'>
-          <img src={producto.img2} alt="logo_producto" style={{width: '30%'}}/>
+          <img src={producto.img2} alt="logo_producto" style={{maxWidth: '500px', maxHeight: '300px'}}/>
           <div className='producto-details'>
             <h1 className='mb-4'>{producto.nombre}</h1>
               <p>{producto.descripcion}</p>
@@ -31,7 +31,11 @@ export const DetalleProducto = ({producto}) => {
                 <h2>PRECIO <span>${producto.precio}</span></h2>
               </div>
           </div>
-      <Button variant="info" className='add-carrito__btn' onClick={addCarrito}>Agregar <br />al carrito</Button>
+          {
+            (user.email)?
+            <Button variant="info" className='add-carrito__btn' onClick={addCarrito}>Agregar <br />al carrito</Button>
+            :null
+          }
       </div>
     </div>
   )
